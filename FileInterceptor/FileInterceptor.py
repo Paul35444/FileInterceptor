@@ -6,6 +6,8 @@ def process_packet(packet):
     scapy_packet = scapy.IP(packet.get_payload()):
 #check packets RAW layer
     if scapy_packet.haslayer(scapy.RAW):
+#check packets destination port for 80 (http)
+        if scapy_packet[scapy.TCP].dport == 80
         print(scapy_packet.show())
 
     packet.accept()
