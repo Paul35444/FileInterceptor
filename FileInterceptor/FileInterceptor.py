@@ -8,7 +8,7 @@ def process_packet(packet):
     if scapy_packet.haslayer(scapy.RAW):
 #check packets destination port for 80 (http)
         if scapy_packet[scapy.TCP].dport == 80:
-
+            print("HTTP Request")
         print(scapy_packet.show())
 
     packet.accept()
