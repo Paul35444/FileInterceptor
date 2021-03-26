@@ -9,10 +9,11 @@ def process_packet(packet):
 #check packets destination port for 80 (http)
         if scapy_packet[scapy.TCP].dport == 80:
             print("HTTP Request")
-        print(scapy_packet.show())
+            print(scapy_packet.show())
 #check packets source port for 80 (http)
         elif scapy_packet[scapy.TCP].sport == 80:
             print("HTTP Response")
+            print(scapy_packet.show())
 
     packet.accept()
 
