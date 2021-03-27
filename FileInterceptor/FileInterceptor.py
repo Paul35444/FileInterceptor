@@ -17,3 +17,5 @@ def process_packet(packet):
 
     packet.accept()
 
+#create instance of queue
+queue = netfilterqueue.NetfilterQueue()
