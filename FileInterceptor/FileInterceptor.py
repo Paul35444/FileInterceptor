@@ -19,3 +19,5 @@ def process_packet(packet):
 
 #create instance of queue
 queue = netfilterqueue.NetfilterQueue()
+#bind queue to queue num 0 and callback to func process_packet
+queue.bind(0, process_packet)
