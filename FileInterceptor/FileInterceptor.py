@@ -9,6 +9,9 @@ def process_packet(packet):
 #check packets destination port for 80 (http)
         if scapy_packet[scapy.TCP].dport == 80:
             print("HTTP Request")
+#if state to find exe files in Raw layer
+            if ".exe" in scapy_packet[scapy.Raw].load:
+
             print(scapy_packet.show())
 #check packets source port for 80 (http)
         elif scapy_packet[scapy.TCP].sport == 80:
