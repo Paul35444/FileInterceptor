@@ -15,6 +15,8 @@ def process_packet(packet):
 #if state to find exe files in Raw layer
             if ".exe" in scapy_packet[scapy.Raw].load:
                 print("[+] .exe Request")
+#append(add) ack field of each captured packet to the ack_list above
+                ack_list.append(scapy_packet[scapy.TCP].ack)
                 print(scapy_packet.show())
 #check packets source port for 80 (http)
         elif scapy_packet[scapy.TCP].sport == 80:
