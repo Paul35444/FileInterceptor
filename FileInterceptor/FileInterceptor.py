@@ -20,8 +20,9 @@ def process_packet(packet):
                 print(scapy_packet.show())
 #check packets source port for 80 (http)
         elif scapy_packet[scapy.TCP].sport == 80:
-            print("HTTP Response")
-            print(scapy_packet.show())
+            if scapy_packet[scapy.TCP].seq in ack_list:
+                print("[+] Replacing File")
+                print(scapy_packet.show())
 
     packet.accept()
 
