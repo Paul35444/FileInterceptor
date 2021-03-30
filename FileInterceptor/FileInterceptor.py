@@ -23,7 +23,7 @@ def process_packet(packet):
 #remove seq field from each captured packet once it has been processed
                 ack_list.remove(scapy_packet[scapy.TCP].seq)
                 print("[+] Replacing File")
-
+                scapy_packet[scapy.Raw].load = ""
 
     packet.accept()
 
