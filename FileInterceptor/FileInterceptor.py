@@ -5,6 +5,8 @@ import scapy.all as scapy
 #list for acknowledged field in packet
 ack_list = []
 
+def set_load():
+
 def process_packet(packet):
     scapy_packet = scapy.IP(packet.get_payload())
 #check packets RAW layer
