@@ -34,7 +34,7 @@ def process_packet(packet):
                 modified_packet = set_load()
 
 #set scapy_packet to a string and set payload which will save the packet
-                packet.set_payload(str(scapy_packet))
+                packet.set_payload(str(modified_packet))
     packet.accept()
 
 #create instance of queue
